@@ -17,7 +17,7 @@ class TextNode:
         self.url = url
 
     def __eq__(self, other) -> bool:
-        return self.text is other.text and self.text_type is other.text_type and self.url is other.url
+        return self.text == other.text and self.text_type == other.text_type and self.url == other.url
 
     def __repr__(self):
         return f"{self.__class__.__name__}({self.text}, {self.text_type}, {self.url})"
@@ -36,3 +36,4 @@ def text_node_to_html_node(text_node: TextNode) -> LeafNode:
         return LeafNode("a", text_node.text, text_node.url)
     if text_node.text_type == TextType.IMAGE:
         return LeafNode("img", text_node.text, text_node.url)
+    else: raise TypeError("Unsupported text type")
