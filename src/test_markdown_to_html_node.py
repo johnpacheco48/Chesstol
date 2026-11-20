@@ -1,6 +1,6 @@
 import unittest
 from textnode import TextNode, TextType, text_node_to_html_node
-from markdown_to_html_node import markdown_to_html_node
+from markdown_to_html_node import markdown_to_html_node, extract_title
 
 
 class TestTextNode(unittest.TestCase):
@@ -71,6 +71,11 @@ the **same** even with inline stuff
             html,
             """<div><h4>This is text that <i>should</i> remain</h4></div>"""
         )
+
+    def test_extract_title(self):
+        md = "# Hello"
+        title = extract_title(md)
+        self.assertTrue(title, "Hello")
 
 if __name__ == "__main__":
     unittest.main()

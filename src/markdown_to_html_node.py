@@ -50,3 +50,10 @@ def get_leaf_nodes(block: str) -> list[LeafNode]:
 
 def get_heading(block: str) -> int:
     return sum(1 for _ in block.split(" ", 1)[0])
+
+def extract_title(markdown: str) -> str:
+    if len(markdown.split("#", 1)) == 1:
+        raise ValueError("Markdown document has no H1 header")
+    hash = markdown.split("#", 1)[1]
+    clean = hash.split("\n", 1)[0].strip()
+    return clean

@@ -13,7 +13,7 @@ class HTMLNode:
         raise NotImplementedError("sowwy, this function is still under constwuction")
 
     def props_to_html(self) -> str:
-        if self.props is None or {}: return ""
+        if not self.props: return ""
         else:
             final = ""
             for i in self.props:
