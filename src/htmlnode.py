@@ -38,6 +38,8 @@ class LeafNode(HTMLNode):
             return f'<{self.tag} src="{self.props}" alt="{self.value}" />'
         elif self.tag == "a":
             return f'<{self.tag}{self.props_to_html()}>{self.value}</{self.tag}>'
+        # elif self.tag == "li":
+        #     return f'<{self.tag}>{self.value}</{self.tag}>\n'
         else:
             return f'<{self.tag}>{self.value}</{self.tag}>'
 

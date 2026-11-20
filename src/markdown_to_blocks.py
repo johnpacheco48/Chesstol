@@ -32,5 +32,4 @@ def markdown_to_blocks(markdown: str) -> list[str]:
     for text in split:
         if text != "":
             blocks.append(text.strip())
-    print(blocks)
     return blocks
