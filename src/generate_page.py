@@ -19,12 +19,12 @@ def generate_page(from_path, template_path, dest_path, basepath) -> None:
 
     replace_title = template_file.replace("{{ Title }}", from_html_title)
     full_html_page = replace_title.replace("{{ Content }}", from_html_file)
-
+    href = full_html_page.replace('href="/', f'href="{basepath}')
+    html_page = href.replace('src="/', f'src="{basepath}')
     with open(dest_path, mode="w") as file:
-        file.write(full_html_page)
+        file.write(html_page)
 
-    href = full_html_page.replace("href='/", f"href='{basepath}")
-    html_page = href.replace("src='/", f"src='{basepath}")
+
 
 def generate_pages_recursive(dir_path_content, template_path, dest_dir_path, basepath) -> None:
     source_path = os.path.abspath(dir_path_content)
